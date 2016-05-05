@@ -36,6 +36,7 @@ public class GcmCommandService extends IntentService {
             Log.d(TAG, "query error");
             return;
         }
+
         if (c.moveToFirst()) {
             String cmd = c.getString(DbHelper.CommandColumns.NDX_SUBJECT);
             String p = c.getString(DbHelper.CommandColumns.NDX_MESSAGE);
