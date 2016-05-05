@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ActionBar" parent="android:Widget.Material.ActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:titleTextAppearance">@style/ToolbarText</item>
+        <item name="android:subtitleTextAppearance">@style/ToolbarSubText</item>
+        <!--<item name="android:logo">@mipmap/ic_axwaylogo</item>-->
+    </style>
+
+    <style name="ToolbarText" parent="android:TextAppearance.Material.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/colorToolbarText</item>
+    </style>
+
+    <style name="ToolbarSubText" parent="android:TextAppearance.Material.Widget.ActionBar.Subtitle">
+        <item name="android:textColor">@color/colorToolbarText</item>
+    </style>
+
+    <style name="SmallText" parent="android:TextAppearance.Material.Small"></style>
+
+    <style name="MediumText" parent="android:TextAppearance.Material.Medium"></style>
+
+    <style name="LargeText" parent="android:TextAppearance.Material.Large"></style>
+
+    <style name="ProgressBar" parent="android:Widget.Material.Light.ProgressBar.Horizontal" />
+
+    <style name="HeaderTextStyle" parent="android:Widget.Material.ActionBar.TabText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="FragmentTitleTextStyle"
+        parent="android:Widget.Material.ActionBar.TabText">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+</resources>

@@ -1,3 +1,101 @@
 <resources>
-    <string name="app_name">APIGW GCM</string>
+
+    <string name="app_name">APIGateway GGM Client</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_manage_certs">Manage Certificates</string>
+    <string name="action_add_acct">Add Account</string>
+    <string name="action_create_acct">Create Account</string>
+    <string name="action_manage_accts">Manage Accounts</string>
+    <string name="action_invalidate_token">Invalidate Token</string>
+    <string name="action_token_info">Token Info</string>
+    <string name="action_revoke_token">Revoke Token</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_enable">Enable</string>
+    <string name="action_disable">Disable</string>
+    <string name="action_sync_now">Sync Now</string>
+    <string name="sync_wifi_only">Sync Only Over Wi-Fi</string>
+    <string name="no_wifi_network">Wi-Fi network not available</string>
+    <string name="no_network">Network connection not available</string>
+
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="remember_creds">Remember credentials?</string>
+    <string name="login">Login</string>
+    <string name="auth_revoked">Authorization revoked</string>
+
+    <string name="oauth_token_url">OAuth Token URL</string>
+    <string name="general_settings">General</string>
+    <string name="acct_settings">API Gateway Account</string>
+    <string name="gateway_host">Hostname or IP</string>
+    <string name="gateway_port">Port</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="new_reg_title">API Gateway Registration</string>
+    <string name="mod_reg_title">Modify Registration</string>
+
+    <string name="action_gcm_unregister">Unregister</string>
+    <string name="action_gcm_register">Register</string>
+    <string name="action_registration">Registration</string>
+
+    <string name="action_modify">Modify</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="use_ssl">Use SSL</string>
+
+    <string name="action_show_alerts">Alerts</string>
+    <string name="action_show_commands">Commands</string>
+    <string name="action_show_events">Events</string>
+
+    <string name="cert_not_trusted">Certificate Not Trusted</string>
+    <string name="add_to_truststore">Add to trusted certificate store?</string>
+    <string name="action_remove_keystore">Remove Trusted Certificate Store</string>
+    <string name="authenticating">Authenticating</string>
+    <string name="trusted_certs">Trusted Certificates</string>
+
+    <!--
+        <string name="welcome_text">This demo utilizes the OAuth capabilities of API Gateway along with Google Cloud Messaging Create to demonstrate how API Gateway can send messages to Android devices. After an account is created, the device will be registered to receive GCM different types of messages from APIGateway.
+    Enter the host and port of your API Gateway OAuth listener and valid credentials</string>
+    -->
+    <string name="info">Information</string>
+    <string name="alert">Alert</string>
+    <string name="command">Command</string>
+    <string name="event">Event</string>
+    <string name="error">Error</string>
+    <string name="confirm">Confirm</string>
+    <string name="confirm_msg">Touch OK to %1$s</string>
+    <string name="msg_keystore_removed">Trusted Certificate Store removed</string>
+
+    <string name="single_acct_text">Because Google Cloud Messaging is device-based and not account-based, multiple accounts per device is not supported in this demo.</string>
+    <string name="welcome_text">API Gateway GCM Demo showcases the OAuth functionality of API Gateway and utilizes Google Cloud To Device Messaging to send messages to Android devices from API Gateway.\n\nBefore creating your account, make sure you\'ve deployed the base GCM Demo config to your API Gateway instance.</string>
+    <string name="login_text">Hi %1$s, login to your API Gateway account</string>
+
+    <string name="lbl_cur_expr">Current Expression</string>
+    <string name="lbl_name">Name</string>
+    <string name="lbl_trig_type">Trigger Type</string>
+    <string name="lbl_expr_type">Expression Type</string>
+    <string name="lbl_http_hdr">Http Header</string>
+    <string name="lbl_hdr_name">Header Name</string>
+    <string name="lbl_hdr_val">Header Value</string>
+    <string name="empty_expr">empty</string>
+    <string name="action_add">Add</string>
+
+    <string name="action_open_paren">(</string>
+    <string name="action_close_paren">)</string>
+    <string name="action_insert_and">AND</string>
+    <string name="action_insert_or">OR</string>
+    <string name="action_insert_not">NOT</string>
+
+    <string name="action_triggers">Event Triggers</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="touch_to_1">Touch OK to %1$s</string>
+    <string name="touch_to_2">Touch OK to %1$s \'%2$s\'</string>
+    <string name="op_cncld">%1$s cancelled</string>
 </resources>

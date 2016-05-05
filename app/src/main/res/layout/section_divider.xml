@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="7dp"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:drawable/bottom_bar"
+    />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        />
+</LinearLayout>
+<!--
+        android:layout_marginLeft="@dimen/activity_vertical_margin_large"
+        android:layout_marginStart="@dimen/activity_vertical_margin_large"
+        android:layout_marginRight="@dimen/activity_vertical_margin_large"
+        android:layout_marginEnd="@dimen/activity_vertical_margin_large"
+-->

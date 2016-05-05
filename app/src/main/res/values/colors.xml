@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">@color/primaryRed</color>
+    <color name="colorPrimaryDark">@color/primaryDarkRed</color>
+    <color name="colorAccent">@color/accentRed</color>
+    <color name="colorToolbarText">@color/actionBarTextRed</color>
+    <!-- Red theme -->
+    <color name="primaryRed">#F44336</color>
+    <color name="primaryDarkRed">#D50000</color>
+    <color name="accentRed">#F44336</color>
+    <color name="actionBarTextRed">@android:color/primary_text_dark</color>
+
+    <!-- Blue theme -->
+    <color name="primaryBlue">#2196F3</color>
+    <color name="primaryDarkBlue">#2962FF</color>
+    <color name="accentBlue">#2196F3</color>
+    <color name="actionBarTextBlue">@android:color/primary_text_dark</color>
+
+    <!-- Black theme -->
+    <color name="primaryBlack">#FF000000</color>
+    <color name="primaryDarkBlack">#FF000000</color>
+    <color name="accentBlack">#CC000000</color>
+    <color name="actionBarTextBlack">@android:color/primary_text_dark</color>
+
 </resources>

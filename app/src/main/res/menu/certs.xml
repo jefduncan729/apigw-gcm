@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ManageCertsFragment" >
+    <item android:id="@id/action_remove_keystore"
+        android:title="@string/action_remove_keystore"
+        android:icon="@mipmap/ic_action_discard"
+        android:showAsAction="ifRoom" />
+</menu>

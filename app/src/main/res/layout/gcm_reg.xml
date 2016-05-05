@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:paddingLeft="@dimen/activity_vertical_margin"
+    android:paddingStart="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_vertical_margin"
+    android:paddingEnd="@dimen/activity_vertical_margin"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        style="@style/ProgressBar"
+        android:id="@android:id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        />
+
+    <LinearLayout
+        android:id="@id/container01"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@android:id/text1"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:text="@string/app_name"
+            android:textAppearance="@style/MediumText"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@id/container02"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_horizontal_margin_tiny"
+        android:paddingLeft="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Message Types"
+            android:paddingBottom="@dimen/activity_horizontal_margin"
+            android:textAppearance="@style/MediumText"
+            />
+        <CheckBox
+            android:id="@id/action_show_alerts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/MediumText"
+            android:text="@string/action_show_alerts"
+            />
+
+        <CheckBox
+            android:id="@id/action_show_commands"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/MediumText"
+            android:text="@string/action_show_commands"
+            />
+
+        <CheckBox
+            android:id="@id/action_show_events"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/MediumText"
+            android:text="@string/action_show_events"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/MediumText"
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/activity_horizontal_margin"
+            android:text="API Gateway Services Port"
+            />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@id/services_port"
+                android:layout_width="72dp"
+                android:layout_marginLeft="@dimen/activity_vertical_margin_small"
+                android:layout_marginRight="@dimen/activity_vertical_margin_small"
+                android:layout_height="wrap_content"
+                android:text="8080"
+                android:inputType="number"
+                />
+
+            <CheckBox
+                android:id="@id/use_ssl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/MediumText"
+                android:text="@string/use_ssl"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@id/container03"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="@string/action_gcm_register"
+                android:id="@android:id/button1"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/action_gcm_unregister"
+                android:visibility="gone"
+                android:id="@android:id/button2"
+                />
+            </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

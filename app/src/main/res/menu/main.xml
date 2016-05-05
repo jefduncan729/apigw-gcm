@@ -1,0 +1,41 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity" >
+    <!--
+    <item android:id="@id/action_registration"
+        android:title="@string/action_registration"
+        android:orderInCategory="10"
+        android:showAsAction="never" />
+    <item android:id="@id/action_token_info"
+        android:title="@string/action_token_info"
+        android:orderInCategory="11"
+        android:showAsAction="never" />
+    <item android:id="@id/action_invalidate_token"
+        android:title="@string/action_invalidate_token"
+        android:orderInCategory="12"
+        android:showAsAction="never" />
+    <item android:id="@id/action_revoke_token"
+        android:title="@string/action_revoke_token"
+        android:orderInCategory="13"
+        android:showAsAction="never" />
+        <item android:id="@id/action_gcm_unregister"
+            android:title="@string/action_gcm_unregister"
+            android:orderInCategory="14"
+            android:showAsAction="never" />
+        <item android:id="@id/action_refresh"
+            android:orderInCategory="15"
+            android:title="@string/action_refresh"
+            android:icon="@drawable/ic_action_refresh"
+            android:showAsAction="ifRoom" />
+    <item android:id="@id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="101"
+        android:icon="@mipmap/ic_action_settings"
+        android:showAsAction="ifRoom" />
+
+    <item android:id="@id/action_manage_certs"
+        android:title="@string/action_manage_certs"
+        android:orderInCategory="102"
+        android:showAsAction="never" />
+    -->
+</menu>

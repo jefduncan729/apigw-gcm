@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:minHeight="@dimen/account_view_min_height"
+    android:background="@color/colorPrimary"
+    android:paddingTop="4dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@android:id/icon1"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@mipmap/ic_action_person"
+        android:contentDescription="@string/app_name"
+        />
+
+    <TextView
+        android:id="@android:id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="8dp"
+        android:paddingEnd="8dp"
+        android:layout_below="@android:id/icon1"
+        android:textColor="@android:color/primary_text_dark"
+        android:layout_centerVertical="true"
+        android:textAppearance="@style/MediumText"
+        />
+</RelativeLayout>

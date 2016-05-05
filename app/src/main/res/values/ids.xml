@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="container01"/>
+    <item type="id" name="container02"/>
+    <item type="id" name="container03"/>
+    <item type="id" name="container04"/>
+    <item type="id" name="container05"/>
+    <item type="id" name="container06"/>
+    <item type="id" name="nav_drawer"/>
+    <item type="id" name="drawer_layout"/>
+    <item type="id" name="toolbar"/>
+
+    <item type="id" name="spacer01"/>
+    <item type="id" name="spacer02"/>
+    <item type="id" name="spacer03"/>
+    <item type="id" name="spacer04"/>
+    <item type="id" name="section_label"/>
+    <item type="id" name="pager"/>
+    <item type="id" name="pager_title_strip"/>
+
+    <item type="id" name="spinner01"/>
+    <item type="id" name="spinner02"/>
+    <item type="id" name="spinner03"/>
+    <item type="id" name="spinner04"/>
+
+    <item type="id" name="chron01"/>
+    <item type="id" name="scroll01"/>
+
+    <item type="id" name="action_gcm_register"/>
+    <item type="id" name="action_gcm_unregister"/>
+    <item type="id" name="action_registration"/>
+    <item type="id" name="action_save"/>
+    <item type="id" name="action_cancel"/>
+    <item type="id" name="action_delete"/>
+    <item type="id" name="action_enable"/>
+    <item type="id" name="action_disable"/>
+    <item type="id" name="action_delete_all"/>
+    <item type="id" name="action_manage_certs"/>
+    <item type="id" name="action_remove_keystore"/>
+    <item type="id" name="action_select_acct"/>
+    <item type="id" name="action_expand_accts"/>
+    <item type="id" name="action_add_acct"/>
+    <item type="id" name="action_example"/>
+    <item type ="id" name="action_invalidate_token"/>
+    <item type ="id" name="action_token_info"/>
+    <item type ="id" name="action_revoke_token"/>
+    <item type ="id" name="action_test"/>
+    <item type ="id" name="action_triggers"/>
+    <item type ="id" name="action_refresh"/>
+    <item type ="id" name="action_sync_now"/>
+    <item type ="id" name="ctr_swipe_refresh"/>
+
+    <item type ="id" name="action_show_alerts"/>
+    <item type ="id" name="action_show_commands"/>
+    <item type ="id" name="action_show_events"/>
+    <item type ="id" name="action_edit"/>
+
+    <item type="id" name="gateway_host"/>
+    <item type="id" name="gateway_port"/>
+    <item type="id" name="services_port"/>
+    <item type="id" name="use_ssl"/>
+    <item type="id" name="client_id"/>
+    <item type="id" name="client_secret"/>
+
+    <item type="id" name="label01"/>
+    <item type="id" name="label02"/>
+    <item type="id" name="label03"/>
+    <item type="id" name="label04"/>
+    <item type="id" name="label05"/>
+    <item type="id" name="label06"/>
+
+    <item type="id" name="card01"/>
+
+    <item type="id" name="ctr_expr_tools"/>
+    <item type="id" name="ctr_hdr_name"/>
+    <item type="id" name="ctr_operand"/>
+    <item type="id" name="action_add"/>
+    <item type="id" name="action_open_paren"/>
+    <item type="id" name="action_close_paren"/>
+    <item type="id" name="action_insert_and"/>
+    <item type="id" name="action_insert_or"/>
+    <item type="id" name="action_insert_not"/>
+    <item type="id" name="edit_hdr_name"/>
+    <item type="id" name="lbl_operand"/>
+    <item type="id" name="edit_operand"/>
+    <item type="id" name="txt_cur_expr"/>
+    <item type="id" name="edit_name"/>
+    <item type="id" name="edit_enabled"/>
+
+</resources>

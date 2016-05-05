@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/dashboard">
+
+        <com.axway.apigwgcm.util.IntegerPreference
+            android:key="gcm.demo.prefs.num.recents"
+            android:defaultValue="5"
+            android:dialogTitle="Recent Items"
+            android:dialogMessage="Recent items per section"
+            android:title="Recent Items"
+            android:dialogLayout="@layout/int_dlg"
+            android:summary=""
+            />
+
+        <SwitchPreference
+            android:key="gcm.demo.prefs.sync.wifi.only"
+            android:title="@string/sync_wifi_only"
+            android:defaultValue="true"
+            android:summary=""
+            />
+        <!--
+                <SwitchPreference
+                    android:key="gcm.demo.prefs.commands"
+                    android:title="@string/action_show_commands"
+                    android:summary=""
+                    />
+
+                <SwitchPreference
+                    android:key="gcm.demo.prefs.events"
+                    android:title="@string/action_show_events"
+                    android:summary=""
+                    />
+        -->
+    </PreferenceCategory>
+<!--
+
+        <EditTextPreference
+            android:key="gcm.demo.oauth.token.url"
+            android:defaultValue=""
+            android:title="@string/oauth_token_url"
+            android:summary=""
+            />
+
+
+        <com.axway.android.preference.IntegerPreference
+            android:key="gcm.demo.gateway.port"
+            android:defaultValue="8089"
+            android:dialogTitle="@string/gateway_port"
+            android:dialogMessage="@string/gateway_port"
+            android:title="@string/gateway_port"
+            android:dialogLayout="@layout/int_dlg"
+            android:summary=""
+            />
+
+    <PreferenceScreen
+        android:key="account_settings"
+        android:title="API Gateway Account"
+        android:summary="Manage API Gateway accounts">
+        <intent
+            android:action="gcm.demo.SETTINGS"
+            android:targetPackage="com.axway.android.apigateway.gcm.demo"
+            android:targetClass="com.axway.android.apigateway.gcm.demo.ManageAccountsActivity"/>
+    </PreferenceScreen>
+-->
+<!--
+    <PreferenceCategory
+            android:title="@string/general_settings">
+        <CheckBoxPreference
+            android:key="showNodeMgrs"
+            android:title="Show NodeManagers"
+            android:summary="Show NodeManagers in the topology view"
+		/>
+          
+        <CheckBoxPreference
+            android:key="reloadAfterUpdate"
+            android:title="Reload after each update"
+            android:summary="Reload the topology after each update"
+		/>
+        
+
+        <EditTextPreference
+			android:key="adminNodeMgrHost"
+			android:title="Host/IP where the admin node manager is running"
+			android:summary=""
+			android:dialogTitle="Admin Node Manager Host" />
+        
+
+        <com.axway.anodemanager.IntegerPreference
+            android:key="adminNodeMgrPort"
+            android:defaultValue="8090"
+            android:dialogTitle="Admin Node Manager Port"
+            android:dialogMessage="Port"
+            android:title="Port where Admin Node Manager is listening"
+            android:summary=""
+        	android:dialogLayout="@layout/int_dlg"
+       	/>
+
+        <CheckBoxPreference
+                android:key="useSsl"
+                android:title="Use SSL?"
+                android:summary="Use a secure connection to the Admin Node Manager"
+                android:dialogTitle="Use SSL?" />
+         
+        <CheckBoxPreference
+                android:key="autoConnect"
+                android:title="Connect at startup?"
+                android:summary="Attempt a connection to the Admin Node Manager at startup"
+                android:dialogTitle="Connect at startup?" />
+                
+        <EditTextPreference
+                android:key="interval"
+                android:title="@string/title_srch_ival"
+                android:summary="@string/summary_srch_ival"
+                android:dialogTitle="@string/title_srch_ival" />
+ 
+        <CheckBoxPreference
+                android:key="showLocation"
+                android:title="Show my location"
+                android:summary="Allows retrieving and displaying my location"
+                android:dialogTitle="Show my location" />
+            
+        <CheckBoxPreference
+                android:key="showCompass"
+                android:title="Show compass"
+                android:summary="Allows displaying the compass"
+                android:dialogTitle="Show compass" />
+            
+        <CheckBoxPreference
+                android:key="viewAsMap"
+                android:title="View route on map"
+                android:summary="Allows your walk to be displayed on a map"
+                android:dialogTitle="View route on map" />
+        
+        <EditTextPreference
+                android:key="maxWalkTime"
+                android:title="Max Walk Time (minutes)"
+                android:summary="Walks will be auto-stopped after this many minutes"
+                android:dialogTitle="Max Walk Time (minutes)"
+                />
+    </PreferenceCategory>
+
+	<PreferenceCategory
+		android:title="Health Checks">
+        <com.axway.agre.util.IntegerPreference
+            android:key="com.axway.agre.hcInterval"
+            android:defaultValue="60"
+            android:dialogTitle="Health Check Interval"
+            android:dialogMessage="Interval (in seconds) between health checks on API Gateway instances"
+            android:title="Health Check Interval"
+            android:summary=""
+            android:dialogLayout="@layout/int_dlg"
+            />
+
+    </PreferenceCategory>
+-->
+</PreferenceScreen>

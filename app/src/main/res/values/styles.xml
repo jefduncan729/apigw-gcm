@@ -1,11 +1,69 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+    </style>
+
+    <style name="ActionBar" parent="android:Widget.Holo.ActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:titleTextAppearance">@style/ToolbarText</item>
+        <item name="android:subtitleTextAppearance">@style/ToolbarSubText</item>
+        <!--<item name="android:logo">@mipmap/ic_axwaylogo</item>-->
+        <!--
+                <item name="android:elevation">@dimen/action_bar_elevation</item>
+        -->
+    </style>
+
+    <style name="ToolbarText" parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/colorToolbarText</item>
+    </style>
+    <style name="ToolbarSubText" parent="android:TextAppearance.Holo.Widget.ActionBar.Subtitle">
+        <item name="android:textColor">@color/colorToolbarText</item>
+    </style>
+
+    <style name="SmallText" parent="android:TextAppearance.Holo.Small"></style>
+
+    <style name="MediumText" parent="android:TextAppearance.Holo.Medium"></style>
+
+    <style name="LargeText" parent="android:TextAppearance.Holo.Large"></style>
+
+    <style name="HeaderTextStyle" parent="android:Widget.Holo.ActionBar.TabText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="Widget" />
+
+    <style name="Widget.SampleDashboard.Card" parent="Widget">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">@dimen/card_margin</item>
+        <item name="cardCornerRadius">4dp</item>
+        <item name="cardElevation">5dp</item>
+        <item name="contentPadding">@dimen/card_padding</item>
+    </style>
+
+    <style name="ProgressBar" parent="android:Widget.Holo.Light.ProgressBar.Horizontal" />
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="FragmentTitleTextStyle"
+        parent="android:Widget.Holo.ActionBar.TabText">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
 </resources>

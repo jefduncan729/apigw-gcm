@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin_small">8dp</dimen>
+    <dimen name="activity_vertical_margin_small">8dp</dimen>
+    <dimen name="activity_horizontal_margin_tiny">4dp</dimen>
+    <dimen name="activity_vertical_margin_tiny">4dp</dimen>
+    <dimen name="activity_horizontal_margin_large">32dp</dimen>
+    <dimen name="activity_vertical_margin_large">32dp</dimen>
+    <dimen name="activity_horizontal_margin_huge">48dp</dimen>
+    <dimen name="activity_vertical_margin_huge">48dp</dimen>
+
+    <dimen name="dashboard_card_height">128dp</dimen>
+    <dimen name="nav_drawer_width">280dp</dimen>
+
+    <dimen name="listitem_height">64dp</dimen>
+    <dimen name="listitem_header_height">20dp</dimen>
+    <dimen name="listitem_small_margin">4dp</dimen>
+    <dimen name="listitem_medium_margin">8dp</dimen>
+    <dimen name="listitem_large_margin">12dp</dimen>
+    <dimen name="listitem_image_size">56dp</dimen>
+    <dimen name="listitem_image_fontsize">30dp</dimen>
+
+    <!-- Per the design guidelines, navigation drawers should be between 240dp and 320dp:
+         https://developer.android.com/design/patterns/navigation-drawer.html -->
+    <dimen name="navigation_drawer_width_small">240dp</dimen>
+    <dimen name="navigation_drawer_width_medium">280dp</dimen>
+    <dimen name="navigation_drawer_width_large">320dp</dimen>
+
+    <dimen name="navigation_drawer_width">@dimen/navigation_drawer_width_small</dimen>
+
+    <dimen name="account_view_min_height">100dp</dimen>
+
+    <dimen name="margin_tiny">4dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+    <dimen name="margin_huge">64dp</dimen>
+
+    <!-- Semantic definitions -->
+
+    <dimen name="horizontal_page_margin">@dimen/margin_medium</dimen>
+    <dimen name="vertical_page_margin">@dimen/margin_medium</dimen>
+
+    <dimen name="card_padding">8dp</dimen>
+    <dimen name="card_margin">8dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+
+</resources>
