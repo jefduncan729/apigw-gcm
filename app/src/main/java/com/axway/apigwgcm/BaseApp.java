@@ -200,6 +200,11 @@ public class BaseApp extends Application {
                 .apply();
     }
 
+    public int getNumRecents() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        return prefs.getInt(Constants.KEY_NUM_RECENTS, Constants.DEF_NUM_RECENTS);
+    }
+
     public void removeOAuthCreds() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.edit()

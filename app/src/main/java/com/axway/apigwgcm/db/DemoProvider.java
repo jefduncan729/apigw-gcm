@@ -18,6 +18,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.axway.apigwgcm.BaseApp;
 import com.axway.apigwgcm.Constants;
 import com.axway.apigwgcm.util.StringUtil;
 
@@ -104,16 +105,16 @@ public class DemoProvider extends ContentProvider {
                 break;
             case DbHelper.RECENT_ALERTS:
                 bldr.setTables(DbHelper.Tables.ALERTS);
-                limit = getNumRecents();
+                limit = BaseApp.getInstance().getNumRecents();
                 break;
             case DbHelper.RECENT_COMMANDS:
                 bldr.setTables(DbHelper.Tables.COMMANDS);
-                limit = getNumRecents();
+                limit = BaseApp.getInstance().getNumRecents();
                 break;
             case DbHelper.RECENT_EVENTS:
                 bldr.setTables(DbHelper.Tables.EVENTS);
                 projection = DbHelper.EventColumns.DEF_PROJECTION;
-                limit = getNumRecents();
+                limit = BaseApp.getInstance().getNumRecents();
                 break;
             case DbHelper.COUNT_ALERTS:
                 bldr.setTables(DbHelper.Tables.ALERTS);
@@ -133,11 +134,11 @@ public class DemoProvider extends ContentProvider {
             return null;
         String sql = null;
         if (count) {
-            projection = new String[] { "count(*)" };
+            projection = new String[] { StringUtil.format("count(%s)", DbHelper.CommonColumns._ID) };
         }
         else {
             if (id != null)
-                bldr.appendWhere(DbHelper.CommonColumns._ID + "=" + id);
+                bldr.appendWhere(StringUtil.format("%s=%s", DbHelper.CommonColumns._ID, id));
             if (TextUtils.isEmpty(sortOrder))
                 sortOrder = DbHelper.CommonColumns.DEF_SORT_ORDER;
             if (projection == null)
@@ -160,11 +161,6 @@ public class DemoProvider extends ContentProvider {
         }
         Log.v(TAG, "row count: " + (rv == null ? "null" : Integer.toString(rv.getCount())));
         return rv;
-    }
-
-    private int getNumRecents() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        return prefs.getInt(Constants.KEY_NUM_RECENTS, Constants.DEF_NUM_RECENTS);
     }
 
     @Override
@@ -315,6 +311,7 @@ public class DemoProvider extends ContentProvider {
         String tblName = null;
         String s = uri.getLastPathSegment();
         boolean fromSync = uri.getBooleanQueryParameter(Constants.EXTRA_FROM_SYNC, false);
+        boolean syncable = false;
         long id = 0;
         try {
             id = Long.parseLong(s);
@@ -342,6 +339,7 @@ public class DemoProvider extends ContentProvider {
                 break;
             case DbHelper.TRIGGER_ID:
                 tblName = DbHelper.Tables.TRIGGERS;
+                syncable = true;
                 break;
         }
         if (TextUtils.isEmpty(tblName) || id == 0) {
@@ -356,7 +354,7 @@ public class DemoProvider extends ContentProvider {
         Log.d(TAG, "delete from " + tblName + " where id=" + Long.toString(id));
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         int rv = 0;
-        if (fromSync) {
+        if (fromSync || !syncable) {
             rv = db.delete(tblName, selection, selectionArgs);
             Log.d(TAG, "deleted: " + Integer.toString(rv));
         }
@@ -367,7 +365,7 @@ public class DemoProvider extends ContentProvider {
             rv = db.update(tblName, values, selection, selectionArgs);
             Log.d(TAG, "set deleted flag: " + Integer.toString(rv));
         }
-        if (rv > 0 && !fromSync) {
+        if (rv > 0 && (!fromSync || !syncable)) {
             notifyChg(uri, null, true);
         }
         return rv;
@@ -389,6 +387,7 @@ public class DemoProvider extends ContentProvider {
         ContentValues values = (valuesIn == null ? new ContentValues() : new ContentValues(valuesIn));
         Log.d(TAG, StringUtil.format("update: raw values: %s", values.toString()));
         boolean fromSync = false;
+        boolean syncable = false;
         if (values.containsKey(Constants.EXTRA_FROM_SYNC)) {
             fromSync = true;
             values.remove(Constants.EXTRA_FROM_SYNC);
@@ -404,7 +403,7 @@ public class DemoProvider extends ContentProvider {
                 break;
             case DbHelper.COMMANDS:
             case DbHelper.COMMAND_ID:
-                cleanCommandValues(values);
+//                cleanCommandValues(values);
                 tblNm = DbHelper.Tables.COMMANDS;
                 break;
             case DbHelper.EVENTS:
@@ -414,6 +413,7 @@ public class DemoProvider extends ContentProvider {
                 break;
             case DbHelper.TRIGGERS:
             case DbHelper.TRIGGER_ID:
+                syncable = true;
                 if (!fromSync)
                     cleanTriggerValues(values);
                 tblNm = DbHelper.Tables.TRIGGERS;
@@ -428,13 +428,13 @@ public class DemoProvider extends ContentProvider {
         }
         if (!selection.contains(DbHelper.CommonColumns._ID))
             selection = (DbHelper.CommonColumns._ID + " = " + id) + selection;
-        if (!fromSync)
+        if (syncable && !fromSync)
             values.put(DbHelper.CommonColumns.FLAG, DbHelper.FLAG_UPDATED);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Log.d(TAG, StringUtil.format("update: %s, cleaned values: %s", uri, values));
         int rv = db.update(tblNm, values, selection, selectionArgs);
         Log.v(TAG, StringUtil.format("updated: %d", rv));
-        if (rv > 0 && !fromSync) {
+        if (rv > 0 && (!syncable || !fromSync)) {
             notifyChg(uri, null, true);
         }
         return rv;

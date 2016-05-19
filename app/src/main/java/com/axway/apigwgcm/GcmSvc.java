@@ -151,6 +151,8 @@ public class GcmSvc extends GcmListenerService {
         String cmd = data.getString("command");
         String params = data.getString("params", "");
         String ackUrl= data.getString("ack_url", "");
+        if (ackUrl.startsWith("["))
+            ackUrl = "";
         String sender = data.getString("sender");
         Uri newUri = null;
         if (uri != null) {

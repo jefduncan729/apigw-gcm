@@ -138,10 +138,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements TextWa
                     txtHost.setText(parts[AccountUtil.NDX_HOST]);  //i.getStringExtra(Constants.EXTRA_GATEWAY_HOST));
                     txtPort.setText(parts[AccountUtil.NDX_PORT]);  //Integer.toString(i.getIntExtra(Constants.EXTRA_GATEWAY_PORT, 0)));
                     txtUser.setText(parts[AccountUtil.NDX_USERNAME]);
-                    if (TextUtils.isEmpty(parts[AccountUtil.NDX_USERNAME]))
-                        focus = txtUser;
-                    else
-                        focus = txtPwd;
+                    focus = (TextUtils.isEmpty(parts[AccountUtil.NDX_USERNAME]) ? txtUser : txtPwd);
                 }
             }
         }
@@ -150,6 +147,20 @@ public class AuthActivity extends AccountAuthenticatorActivity implements TextWa
         if (focus != null)
             focus.requestFocus();
         viewFilled = true;
+    }
+
+    @Override
+    public void setTitle(CharSequence title) {
+        super.setTitle(title);
+        if (toolbar != null)
+            toolbar.setTitle(title);
+    }
+
+    @Override
+    public void setTitle(int titleId) {
+        super.setTitle(titleId);
+        if (toolbar != null)
+            toolbar.setTitle(titleId);
     }
 
     protected void setupToolbar() {
@@ -290,6 +301,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements TextWa
         @Override
         public void onFailureResponse(Call call, IOException e) {
             super.onFailureResponse(call, e);
+            baseApp.removeOAuthCreds();
             final CertPath certPath = BaseApp.certPathFromThrowable(e);
             if (certPath != null) {
                 runOnUiThread(new CertPathRunnable(user, certPath));

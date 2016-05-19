@@ -141,7 +141,7 @@ abstract public class BaseListActivity extends BaseActivity implements ListCallb
             return;
         final Uri uri = intent.getData();   //getParcelableExtra(Intent.EXTRA_UID);
         final String name = intent.getStringExtra(Intent.EXTRA_TEXT);
-        if (uri == null || TextUtils.isEmpty(name))
+        if (uri == null)
             return;
         confirmDelete(uri, name);
     }

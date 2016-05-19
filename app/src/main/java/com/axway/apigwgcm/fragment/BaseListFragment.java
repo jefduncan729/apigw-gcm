@@ -3,7 +3,9 @@ package com.axway.apigwgcm.fragment;
 import android.app.Activity;
 import android.app.ListFragment;
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.axway.apigwgcm.Constants;
 import com.axway.apigwgcm.R;
 import com.axway.apigwgcm.util.ListCallbacks;
 import com.axway.apigwgcm.view.ViewBinder;
@@ -176,6 +179,13 @@ abstract public class BaseListFragment extends ListFragment {
         final Intent i = item.getIntent();
         if (i != null) {
             if (Intent.ACTION_DELETE.equals(i.getAction()) && callbacks != null) {
+/*
+                Uri uri = item.getIntent().getData();
+                if (uri == null)
+                    return true;
+                //add 'fromSync=true' so provider will actually delete the record (as opposed to setting its DELETED flag)
+                item.getIntent().setData(uri.buildUpon().appendQueryParameter(Constants.EXTRA_FROM_SYNC, Boolean.toString(true)).build());
+*/
                 callbacks.onDelete(item.getIntent());
                 return true;
             }

@@ -35,7 +35,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     public static final int STATUS_DISABLED = 0;
     public static final int STATUS_ENABLED = 1;
-
+    public static final int STATUS_ACKED = STATUS_ENABLED;
 
     public static final int ALERTS = BASE + 1;
     public static final int COMMANDS = BASE + 2;

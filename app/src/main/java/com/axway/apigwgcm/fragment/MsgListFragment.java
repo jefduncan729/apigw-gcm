@@ -67,7 +67,7 @@ public class MsgListFragment extends CursorListFragment {
 
     @Override
     protected boolean canDeleteAll() {
-        return true;
+        return false;
     }
 
     @Override

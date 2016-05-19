@@ -120,6 +120,8 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             return;
         }
 
+        checkUnAckedCommands();
+
         Bundle gcmCfg = GcmUtil.loadSettings(prefs);
         boolean isSsl = gcmCfg.getBoolean(Constants.KEY_SERVICES_USE_SSL, false);
         int port = gcmCfg.getInt(Constants.KEY_SERVICES_PORT, 8080);
@@ -171,6 +173,80 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         Log.d(TAG, "sync complete, broadcast sent");
     }
 
+    private void checkUnAckedCommands() {
+        String where = StringUtil.format("%s <> ?", DbHelper.CommandColumns.STATUS);
+        String[] args = new String[] { Integer.toString(DbHelper.STATUS_ACKED)};
+        Cursor c = resolver.query(DbHelper.CommandColumns.CONTENT_URI, DbHelper.CommandColumns.DEF_PROJECTION, where, args, DbHelper.CommandColumns.DEF_SORT_ORDER);
+        List<Long> ids = new ArrayList<>();
+        if (c == null) {
+            return;
+        }
+        while (c.moveToNext()) {
+            if (ackCommand(c))
+                ids.add(c.getLong(DbHelper.CommandColumns.NDX_ID));
+        }
+        c.close();
+        where = StringUtil.format("%s IN (", DbHelper.CommandColumns._ID);
+//        args = new String[ids.size()];
+        int n = 0;
+        for (Long id: ids) {
+            if (n > 0)
+                where = where + ", ";
+            where = where + Long.toString(id);
+//            args[n++] = Long.toString(id);
+            n++;
+        }
+        where = where + ")";
+        ContentValues cv = new ContentValues();
+        cv.put(DbHelper.CommonColumns.MODIFY_DATE, System.currentTimeMillis());
+        cv.put(DbHelper.CommandColumns.STATUS, DbHelper.STATUS_ACKED);
+        int nupd = resolver.update(DbHelper.CommandColumns.CONTENT_URI, cv, where, null);
+        Log.d(TAG, StringUtil.format("%d unacked commands updated", nupd));
+    }
+
+    private boolean ackCommand(Cursor c) {
+        String url = c.getString(DbHelper.CommandColumns.NDX_ACK_URL);
+        if (TextUtils.isEmpty(url) || url.startsWith("[")) {
+            return true;
+        }
+        //send ack to server
+        JsonObject j = new JsonObject();
+        j.addProperty("id", c.getLong(DbHelper.CommandColumns.NDX_ID));
+        j.addProperty("command", c.getString(DbHelper.CommandColumns.NDX_SUBJECT));
+        j.addProperty("params", c.getString(DbHelper.CommandColumns.NDX_MESSAGE));
+//        j.addProperty("response", c.getString(DbHelper.CommandColumns.NDX));
+        j.addProperty("ack_url", c.getString(DbHelper.CommandColumns.NDX_ACK_URL));
+        return ackCommand(j);
+    }
+
+    private boolean ackCommand(JsonObject j) {
+        String t = AccountUtil.getInstance().peekAuthToken();
+        OAuthToken tkn = OAuthToken.from(jsonUtil.parseAsJsonObject(t));
+        if (tkn == null || tkn.isExpired())
+            tkn = AccountUtil.getInstance().blockingGetAuthToken();
+        if (tkn == null || tkn.isExpired()) {
+            return false;
+        }
+        Request req = new Request.Builder()
+                .url(j.get("ack_url").getAsString())
+                .addHeader("Authorization", "Bearer " + tkn.getAccessToken())
+                .method("POST", RequestBody.create(MediaType.parse("application/json"), j.toString()))
+                .build();
+        Response resp = null;
+        boolean rv = false;
+        try {
+            resp = baseApp.executeRequest(req);
+            if (resp.isSuccessful()) {
+                rv = true;
+                baseApp.consumeStringResponse(resp);
+            }
+        }
+        catch (IOException e) {
+            Log.e(TAG, "in cmd_ack", e);
+        }
+        return rv;
+    }
+
     private List<Long> deleteDeleted(String url, OAuthToken token) {
         List<Long> ids = idsWithFlag(DbHelper.TriggerColumns.CONTENT_URI, DbHelper.FLAG_DELETED);
         Log.d(TAG, String.format("deleting %d rows from server", ids.size()));
@@ -182,6 +258,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         }
         return chgd;
     }
+
     private List<Long> uploadNew(String url, OAuthToken token) {
         List<Long> ids = idsWithFlag(DbHelper.TriggerColumns.CONTENT_URI, DbHelper.FLAG_NEW);
         Log.d(TAG, String.format("inserting %d rows on server", ids.size()));

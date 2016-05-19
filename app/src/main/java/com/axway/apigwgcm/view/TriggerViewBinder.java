@@ -1,6 +1,7 @@
 package com.axway.apigwgcm.view;
 
 import android.database.Cursor;
+import android.graphics.Paint;
 import android.view.View;
 
 import com.axway.apigwgcm.db.DbHelper;
@@ -28,6 +29,12 @@ public class TriggerViewBinder extends CursorViewBinder {
             holder.setText1(buildSummary(cursor));
             holder.getTextView1().setTag(cursor.getLong(DbHelper.TriggerColumns.NDX_ID));
 //            holder.getTextView2().setTag(holder.getAuxView(R.id.chron01));
+            int pf = holder.getTextView1().getPaintFlags();
+            if (cursor.getInt(DbHelper.CommonColumns.NDX_STATUS) == DbHelper.STATUS_ENABLED)
+                pf = pf & ~Paint.STRIKE_THRU_TEXT_FLAG;    //pf holder.getTextView1().setPaintFlags(holder.getTextView1().getPaintFlags()  & ~Paint.STRIKE_THRU_TEXT_FLAG);
+            else
+                pf = pf | Paint.STRIKE_THRU_TEXT_FLAG;  //holder.getTextView1().setPaintFlags(holder.getTextView1().getPaintFlags()  | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.getTextView1().setPaintFlags(pf);
             holder.setText2(buildDetails(cursor));
             if (getIconId() != 0) {
                 holder.showImageView(true);
@@ -58,24 +65,20 @@ public class TriggerViewBinder extends CursorViewBinder {
         StringBuilder sb = new StringBuilder();
         sb.append(cursor.getString(DbHelper.TriggerColumns.NDX_EXPR)).append("\n");
         sb.append("id: ").append(cursor.getLong(DbHelper.TriggerColumns.NDX_ID))
-                .append(", type: ").append(cursor.getInt(DbHelper.TriggerColumns.NDX_TYPE))
-                .append(", state: ");
+                .append(", type: ").append(cursor.getInt(DbHelper.TriggerColumns.NDX_TYPE));
+//                .append(", state: ");
         int flag = cursor.getInt(DbHelper.TriggerColumns.NDX_FLAG);
         switch (flag) {
             case DbHelper.FLAG_INSYNC:
-                sb.append("Synced");
+//                sb.append("Synced");
             break;
             case DbHelper.FLAG_NEW:
-                sb.append("New");
+                sb.append(" +");
                 break;
             case DbHelper.FLAG_UPDATED:
-                sb.append("Updated");
+                sb.append(" *");
                 break;
         }
-        if (cursor.getInt(DbHelper.TriggerColumns.NDX_STATUS) == 0)
-            sb.append(", disabled");
-        else
-            sb.append(", enabled");
         return sb.toString();
     }
 

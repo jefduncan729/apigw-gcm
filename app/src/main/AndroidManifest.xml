@@ -83,6 +83,9 @@
         <service android:name="com.axway.apigwgcm.GcmCommandService"
             android:exported="false"/>
 
+        <service android:name="com.axway.apigwgcm.TtsService"
+            android:exported="false"/>
+
         <activity
             android:name=".accounts.AuthActivity"
             android:configChanges="orientation"
